@@ -26,6 +26,7 @@ class SeatsioObject {
   final dynamic parent;
   final String? viewFromSeatUrl;
   final String? resaleListingId;
+  final List<Map<String,dynamic>>? seats;
 
   // Area
   final int? capacity;
@@ -76,7 +77,8 @@ class SeatsioObject {
       this.numberOfSelectedObjects,
       this.selectableCategories,
       this.isInteractive,
-      this.resaleListingId});
+      this.resaleListingId, 
+      this.seats,});
 
   factory SeatsioObject.fromJson(Map<String, dynamic> json) {
     return SeatsioObject(
@@ -116,6 +118,7 @@ class SeatsioObject {
         numberOfSelectedObjects: json['numberOfSelectedObjects'],
         selectableCategories: json['selectableCategories'],
         isInteractive: json['isInteractive'],
+        seats: json['seats'] != null ? List<Map<String,dynamic>>.from(json['seats']) : null,
         resaleListingId: json['resaleListingId']);
   }
 }
